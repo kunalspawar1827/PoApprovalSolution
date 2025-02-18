@@ -29,8 +29,7 @@ namespace PoApprovalSolutionAPI.Controllers
             try
             {
 
-
-                // Register the SAP destination configuration
+              // Register the SAP destination configuration
                 RfcDestinationManager.RegisterDestinationConfiguration(config);
                 designation = RfcDestinationManager.GetDestination("SHX");
                 // Get the SAP repository
@@ -58,10 +57,6 @@ namespace PoApprovalSolutionAPI.Controllers
                 // Call the SAP function for this single row
                 rfcFunction.Invoke(designation);
                 url = rfcFunction.GetValue("EX_RE_URL").ToString();
-
-           
-
-               
                 RfcDestinationManager.UnregisterDestinationConfiguration(config);
                 repo = null;
                 designation = null;
